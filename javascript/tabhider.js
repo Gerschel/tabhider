@@ -35,6 +35,7 @@ class TabHider {
 
       if (elements.length > 0) {
         tabHider = new TabHider(elements);
+        tabHider.enableRehide();
         observer.disconnect();
       }
     });
