@@ -6,7 +6,8 @@ class TabHider {
     elements.forEach(e => {
         let tab = gradioApp().getElementById(`tab_${e.innerText.trim().toLowerCase()}`)
         this.elements.push({'element':e, 'tab': tab});
-        tab.style.display = "none";
+        //tab.style.display = "none";
+        tab.remove();
         e.style.display = "none";
     })
     this.rehide = this.rehide.bind(this);
@@ -17,7 +18,9 @@ class TabHider {
   rehide(){
     this.elements.forEach( ob =>{
         ob.element.style.display = "none";
-        ob.tab.style.display = "none"
+        if (ob.tab){
+          ob.tab.style.display = "none"
+        }
     })
   }
 
